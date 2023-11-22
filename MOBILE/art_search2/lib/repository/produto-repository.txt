@@ -1,0 +1,34 @@
+// ignore_for_file: prefer_final_fields
+
+import 'package:art_search2/model/produto.dart';
+
+class ProdutoRepository {
+  static List<Produto> _listaProdutos = [
+    Produto(
+        1,
+        "https://kipling.vtexassets.com/arquivos/ids/176766/I5140J99-1.jpg?v=637437511476530000",
+        "Mochila Kipling",
+        "Mochila Kipling - Seoul Preto",
+        "",
+        3,
+        50.00),
+    Produto(
+        2,
+        "https://kipling.vtexassets.com/arquivos/ids/176766/I5140J99-1.jpg?v=637437511476530000",
+        "Mochila Feminina",
+        "Mochila rosa com diversos bolsos.",
+        "",
+        3,
+        75),
+    Produto(
+        3,
+        "https://cdn.pixabay.com/photo/2020/11/05/17/39/fountain-pen-5715696_1280.jpg",
+        "Caneta Tinteiro",
+        "Tinteiro Preta",
+        "",
+        7,
+        85)
+  ];
+
+  static get getListaProdutos => _listaProdutos;
+}

@@ -1,0 +1,101 @@
+import 'package:art_search2/telas/carrinho.dart';
+import 'package:art_search2/telas/configuracao.dart';
+import 'package:flutter/material.dart';
+
+import '../repository/usuarios-repository.dart';
+import '../telas/login.dart';
+import '../telas/sobre.dart';
+import '../telas/sua-loja.dart';
+
+class Gaveta extends StatefulWidget {
+  const Gaveta({super.key});
+
+  @override
+  State<Gaveta> createState() => _GavetaState();
+}
+
+class _GavetaState extends State<Gaveta> {
+  @override
+  Widget build(BuildContext context) {
+    return NavigationDrawer(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
+            children: [
+              if (UsuarioRepository.estaLogado == true)
+                Column(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/icone.jpg'),
+                      radius: 100,
+                    ),
+                    Text(
+                      UsuarioRepository.logado?.nome,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.logout),
+                      title: const Text("Logout"),
+                      onTap: () {
+                        UsuarioRepository.estaLogado = false;
+                        setState(() {});
+                      },
+                    )
+                  ],
+                )
+              else
+                ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Login/Cadastro"),
+                  onTap: () async {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Login()));
+                    setState(() {});
+                  },
+                ),
+              const Divider(),
+              if (UsuarioRepository.estaLogado == true)
+                ListTile(
+                    leading: const Icon(Icons.store),
+                    title: const Text("Sua Loja"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SuaLoja()));
+                    }),
+              ListTile(
+                  leading: const Icon(Icons.shopping_cart),
+                  title: const Text("Carrinho"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Carrinho()));
+                  }),
+              ListTile(
+                  leading: const Icon(Icons.settings),
+                  title: const Text("Configurações"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Configuracoes()));
+                  }),
+              const Divider(),
+              ListTile(
+                  leading: const Icon(Icons.question_mark),
+                  title: const Text("Sobre nós"),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Sobre()));
+                  }),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}

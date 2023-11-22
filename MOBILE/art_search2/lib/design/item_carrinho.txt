@@ -1,0 +1,30 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+class ItemCarrinho extends StatefulWidget {
+  const ItemCarrinho({super.key});
+
+  @override
+  State<ItemCarrinho> createState() => _ItemCarrinhoState();
+}
+
+class _ItemCarrinhoState extends State<ItemCarrinho> {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+                            title: Text(nome),
+                            leading:
+                                const SizedBox(width: 55, child: Placeholder()),
+                            subtitle: Text(
+                                "R\$${preco.toString()}"),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                    quantidade.toString()),
+                                IconButton(
+                                    onPressed: () {}, icon: const Icon(Icons.delete))
+                              ],
+                            ));;
+  }
+}
