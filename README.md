@@ -1,6 +1,6 @@
 # Art-Search
 https://drive.google.com/drive/u/0/folders/17SE5INxLagjAH_JyEvy5ooS_W9jetkql
-
+OBS: o projeto não foi finalizado
 Para Usuários:
 Para acessar o site normalmente, você pode utilizar o seguinte link: 
 
